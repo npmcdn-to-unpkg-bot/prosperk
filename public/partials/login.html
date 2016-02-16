@@ -1,0 +1,29 @@
+<div class="signup-page-bg"></div>
+<div class="container-fluid">
+    <div class="container">
+        <div class="row row-centered">
+            <div class="col-sm-6 col-xs-12 mtopbot75 col-centered bg-white border-all border-light-gray rounded-corners signup-form">
+
+                <h2 class="text-center text-blue ptop15">
+                    Login with your email
+                </h2>
+
+                <div class="row ptop15">
+                    <form ng-submit="loginUser(login)">
+                        <div class="form-group col-sm-12 text-left">
+                            <label>Username</label>
+                            <input type="text" class="form-control" ng-model="login.username">
+                        </div>
+                        <div class="form-group col-sm-12 text-left">
+                            <label>Password</label>
+                            <input type="password" class="form-control" ng-model="login.password">
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <button type="submit" class="btn btn-primary btn-lg">Log In</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

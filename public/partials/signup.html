@@ -1,0 +1,40 @@
+<div class="signup-page-bg"></div>
+<div class="container-fluid">
+    <div class="container">
+        <div class="row row-centered">
+            <div class="col-lg-5 col-md-6 col-sm-8 col-xs-12 mtopbot75 col-centered bg-white border-all border-light-gray rounded-corners signup-form">
+
+                <h2 class="text-center text-blue ptop15">
+                    Sign up with your email
+                </h2>
+                <p>One step closer to getting your very own personal page.</p>
+                <div class="alert alert-danger" ng-show="signupError">
+                    {{signupError}}
+                </div>
+                <div class="row ptop15">
+                    <form ng-submit="signupUser(signup)">
+                        <div class="form-group col-sm-6 col-xs-12 text-left">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" ng-model="signup.firstName">
+                        </div>
+                        <div class="form-group col-sm-6 col-xs-12 text-left">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" ng-model="signup.lastName">
+                        </div>
+                        <div class="form-group col-sm-12 text-left">
+                            <label>Email</label>
+                            <input type="text" class="form-control" ng-model="signup.email">
+                        </div>
+                        <div class="form-group col-sm-12 text-left">
+                            <label>Password</label>
+                            <input type="password" class="form-control" ng-model="signup.password">
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

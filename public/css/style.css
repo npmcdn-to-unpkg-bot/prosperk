@@ -1,0 +1,218 @@
+/*
+    Primary Blue Color HEX #3D5AA8
+    Primary Blue Color RGBA rgba(61,90,168,1)
+    Primary Blue Hover Color HEX #234591
+    Primary Blue Hover Color RGBA rgba(35,69,145,1)
+    Secondary Purple Color HEX #9A48D0
+    Secondary Purple Color RGBA rgba(154,72,208,1)
+    Secondary Blue Color RGBA rgba(0,61,255,1)
+*/
+
+
+body{
+    font-family: 'Lato', sans-serif;
+    background: #f6f6f6;
+    line-height: 1.6em;
+    color: #717171;
+}
+
+*
+{
+    outline:none!important;
+}
+
+p{
+    line-height: 1.5em;
+}
+
+.main-view .form-control
+{
+    height: auto;
+    min-height: 40px;
+    padding: 10px 12px;
+}
+
+#header
+{
+    background: rgba(255,255,255,.97);
+    border-bottom: none;
+}
+
+.nav.login-btns >li > a
+{
+    padding: 5px 10px;
+}
+
+.nav.login-btns >li > a.signup-header-btn
+{
+    background: rgba(0,61,255,1);
+    color: #ffffff;
+    border:rgba(0,61,255,1) 1px solid;
+    margin-right: 10px;
+}
+
+.main-view
+{
+    margin-top: 50px;
+}
+
+.navbar-brand
+{
+    width: 130px;
+    padding: 5px 10px;
+}
+
+.navbar-toggle, .navbar-toggle:active
+{
+    padding: 5px 10px;
+    color: #3D5AA8;
+}
+
+.navbar-toggle:hover
+{
+    padding: 5px 10px;
+    background-color: #3D5AA8!important;
+    border-color: #3D5AA8;
+    color: #ffffff;
+}
+
+.home-intro-hero
+{
+    position: relative;
+    background: url("../images/hero-images/home-intro-multi-ethenic-bg.jpg") no-repeat center;
+    background-size:cover;
+    height: 500px;
+    padding: 0;
+}
+
+.hero-overlay-bg
+{
+    position: absolute;
+    background: rgba(0,61,255,.8);
+    width: 100%;
+    height: 100%;
+}
+
+.home-intro-hero h1
+{
+    font-size: 46px;
+    margin: 0;
+    padding-top: 20%;
+}
+
+.home-intro-hero p
+{
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: 300;
+    color: #ffffff;
+}
+.home-how-it-works
+{
+    color:#515151;
+    text-align: center;
+}
+
+.home-how-it-works h4
+{
+    margin-top: 25px;
+}
+
+/********************************************
+            Sign Up Page
+********************************************/
+.signup-page-bg
+{
+    display: block;
+    position: absolute;
+    width: 100%;
+    min-height: calc(100%);
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 1;
+    background: #0080ff;
+}
+
+.signup-form
+{
+    z-index: 2;
+}
+
+
+/********************************************
+                404 Page
+********************************************/
+#error-page
+{
+    display: block;
+    position: absolute;
+    width: 100%;
+    min-height:calc(100% - 50px);
+    background: #0080ff;
+    color: #ffffff;
+}
+
+.error-page-content
+{
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    width: 75%;
+    max-width: 800px;
+    color: #ffffff;
+    text-align: center;
+}
+
+
+.error-page-content h2
+{
+    font-size: 40px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.error-page-content-img
+{
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    text-align: center;
+    border-bottom:1px solid #ffffff;
+}
+
+.error-page-content-img img
+{
+    height: 300px;
+}
+
+.error-page-content-img h1
+{
+    width: 50%;
+}
+
+
+.error-page-content-img img, .error-page-content-img h1
+{
+    display:inline-block;
+    float:none;
+    /* inline-block space fix */
+    vertical-align: top;
+    float: none;
+    font-size: 250px;
+}
+
+
+.error-page-content-text
+{
+    display: inline-block;
+    position: relative;
+    float: left;
+    text-align: center;
+    width: 100%;
+}

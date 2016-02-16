@@ -1,0 +1,83 @@
+<div ng-show="pageFullyLoaded">
+    <div class="container-fluid bg-blue" ng-init="profileInit()">
+        <div class="container pleftright0">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4 class="mtop10 ptopbot10 text-white pleft15">Hi, {{currentUser.firstName}}!</h4>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container mtop25">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="bg-white border-all border-light-gray rounded-corners">
+                    <div class="row border-bottom border-light-gray mleftright0">
+                        <div class="col-xs-6">
+                            <h3 class="mtop20 bot15">Users</h3>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group mtopbot10">
+                                <input type="text" placeholder="search users" ng-model="searchUser" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-light-gray border-all border-gray rounded-corners mleftright10 mtopbot10 pad15 animated fadeIn" ng-repeat="user in allUsers | filter: searchUser">
+                        <p>Name: {{user.firstName}} {{user.lastName}}</p>
+                        <p>Email: {{user.username}}</p>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-sm-6">
+                <div class="bg-white border-all border-light-gray rounded-corners">
+                    <!-- Standar Form -->
+                    <h4>Select files from your computer</h4>
+
+                    <form name="form">
+
+                        <div class="form-group">
+                            <label>Design Name</label>
+                            <input type="text" ng-model="design.name">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Design Name</label>
+                            <input type="text" ng-model="design.name">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Design Name</label>
+                            <input type="text" ng-model="design.name">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Design Name</label>
+                            <div class="btn btn-primary" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+                                 ngf-accept="'image/*'" ngf-min-height="100">Select</div>
+                            <button type="submit" ng-click="submit()">submit</button>
+                        </div>
+
+
+                        Single Image with validations
+                        <div class="btn btn-primary" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+                             ngf-accept="'image/*'" ngf-max-size="5MB" ngf-min-height="100">Select</div>
+                        <button type="submit" ng-click="submit()">submit</button>
+                    </form>
+
+
+                    <div>
+                        <img ngf-src="file" class="img-thumbnail img-responsive">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

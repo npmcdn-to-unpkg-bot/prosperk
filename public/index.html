@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="personly">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Personly</title>
+
+    <!--bower:css-->
+    <link rel="stylesheet" href="bower-components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower-components/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="bower-components/angular-toastr/dist/angular-toastr.css" />
+    <!--endbower-->
+
+    <!--inject:css-->
+    <link rel="stylesheet" href="/css/helper-classes.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/vendor/animate.min.css">
+    <!--endinject-->
+
+
+</head>
+<body>
+    <div ng-include="'../partials/header-footer/header.html'" ng-controller="headerFooterCtrl"></div>
+    <div ng-view class="main-view"></div>
+
+
+    <!--bower:js-->
+    <script src="bower-components/jquery/dist/jquery.js"></script>
+    <script src="bower-components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower-components/angular/angular.js"></script>
+    <script src="bower-components/angular-route/angular-route.js"></script>
+    <script src="bower-components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="bower-components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower-components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="bower-components/ng-file-upload/ng-file-upload.js"></script>
+    <script src="bower-components/ng-file-upload-shim/ng-file-upload-shim.js"></script>
+    <!--endbower-->
+
+
+    <!--inject:js-->
+    <script src="/js/app.js"></script>
+    <script src="/js/filters.js"></script>
+    <script src="/js/routes.js"></script>
+    <script src="/js/controllers/landing.js"></script>
+    <script src="/js/controllers/login.js"></script>
+    <script src="/js/controllers/profile.js"></script>
+    <script src="/js/services/factory.js"></script>
+    <script src="/js/controllers/header-footer/header-footer.js"></script>
+    <!--endinject-->
+
+
+</body>
+</html>
