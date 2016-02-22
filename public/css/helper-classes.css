@@ -37,6 +37,11 @@
     overflow: hidden !important;
 }
 
+.position-relative
+{
+    position: relative!important;
+}
+
 .cursor-default
 {
     cursor: default !important;
@@ -409,6 +414,11 @@
 .text-white
 {
     color: #ffffff!important;
+}
+
+.text-gray
+{
+    color: #999999!important;
 }
 
 .text-blue

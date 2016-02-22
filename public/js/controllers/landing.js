@@ -4,7 +4,9 @@
 
 pmApp.controller('landingCtrl',[ '$scope', '$rootScope','$location','$http','pmAuth', function($scope, $rootScope, $location,$http,pmAuth){
 
-    if($rootScope.loggedIn){
+
+
+    if(pmAuth.isSessionValid()){
         $location.path('/profile');
     }
 

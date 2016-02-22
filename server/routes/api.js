@@ -5,6 +5,7 @@
 'use strict';
 
 var User = require('../models/user');
+var Design = require('../models/design');
 var config = require('../../config');
 var secret = config.secret;
 var jwt = require('jsonwebtoken');
@@ -14,7 +15,7 @@ var multiparty = require('connect-multiparty'),
     multipartyMiddleware = multiparty(),
 
 // Requires controller
-    UserController = require('./../controllers/UserController');
+    DesignController = require('./../controllers/DesignController');
 
 
 
@@ -39,7 +40,7 @@ module.exports = function(app, express){
                 User.findOne({
                     username:user.username
                 }).exec(function (err, user) {
-                    
+
                     if(err){return res.send(err)};
                     var token = createToken(user);
 
@@ -74,14 +75,13 @@ module.exports = function(app, express){
             if(!user) {
                 res.send({message:'User Doesn\'t exist' });
             }else if(user){
-                
+
                 var validPassword = user.comparePassword(userData.password);
 
                 if(!validPassword){
                     res.send({message:'Invalid Password'});
                 } else{
-                    
-                    console.log(user);
+
                     var token = createToken(user);
 
                     var userDetails = {
@@ -90,6 +90,7 @@ module.exports = function(app, express){
                         username: user.username
                     };
 
+                    console.log(userDetails);
                     res.json({
                         success: true,
                         message:'Login Successfully',
@@ -115,9 +116,11 @@ module.exports = function(app, express){
                         success:false,
                         errCode:9999,
                         message:'False or expired token'
-                    })
+                    });
+                    console.log("False or expired token.");
                 }else{
                     req.decoded = decoded;
+                    console.log("Valid token.");
                     next();
                 }
             })
@@ -126,7 +129,10 @@ module.exports = function(app, express){
                 success:false,
                 errCode:9999,
                 message:'No token provided'
-            })
+            });
+
+            console.log("No token provided.");
+
         }
 
     });
@@ -141,11 +147,25 @@ module.exports = function(app, express){
         })
     });
 
+    api.get('/my-designs', function (req, res) {
+        Design.find({createdBy: req.decoded._id}).select('-_id -__v').exec(function (err, designs){
+            if(err){
+                return res.send(err);
+            } else{
+                if(designs.length>0){
+                    res.status(200).json({success:true, designs:designs});
+                }else{
+                    res.status(404).json({success:false, message:"No design found for the current users."});
+                }
+            }
+        })
+    });
+
     api.get('/me', function (req, res, next) {
        res.send(req.decoded);
     });
 
-    api.post('/user/upload', multipartyMiddleware, UserController.uploadFile);
+    api.post('/user/upload', multipartyMiddleware, DesignController.uploadFile);
 
 
 
@@ -165,6 +185,6 @@ function createToken(user){
     }, secret, {
         expiresInMinute: 1440
     });
-    
+
     return token;
 }

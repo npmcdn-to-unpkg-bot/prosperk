@@ -8,6 +8,63 @@
     Secondary Blue Color RGBA rgba(0,61,255,1)
 */
 
+/********************************************
+    Bootstrap elements override starts
+********************************************/
+
+.tooltip-inner
+{
+    background: #999;
+}
+
+.tooltip.top .tooltip-arrow
+{
+    border-top-color: #999;
+}
+
+/********************************************
+    Bootstrap elements override ends
+********************************************/
+
+
+/********************************************
+            Loading SVG Starts
+********************************************/
+
+#loading
+{
+    display: block;
+    position: absolute;
+    background: rgba(255,255,255,.8);
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+}
+
+#loading .content
+{
+    position: absolute;
+    width: 150px;
+    height: 130px;
+    margin: auto;
+    text-align: center;
+    top:0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 999;
+}
+
+#loading .content img
+{
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+
+/********************************************
+            Loading SVG Ends
+********************************************/
 
 body{
     font-family: 'Lato', sans-serif;

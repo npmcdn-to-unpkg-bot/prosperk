@@ -5,26 +5,31 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-    schema = mongoose.Schema,
-    bcrypt = require('bcrypt-nodejs');
+    schema = mongoose.Schema;
 
-var userSchema = new schema({
+var designSchema = new schema({
     createdBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-    designName: {
+    name: {
+        type:String,
+        required: true,
+        trim:true
+    },
+    description: {
         type:String,
         required: true,
         trim:true
     },
     images: [{
-        main:{
+        version:{
             type:String,
-            required:true,
+            required: true,
             trim:true
         },
-        list:[{
+        fileName:{
             type:String,
+            required: true,
             trim:true
-        }]
+        }
     }],
     tags: {
         type:[],
@@ -38,24 +43,5 @@ var userSchema = new schema({
 
 });
 
-userSchema.pre('save', function (next) {
-    var user = this;
-    if(!user.isModified('password')) return next();
 
-    bcrypt.hash(user.password, null, null , function (err, hash) {
-        if(err){
-            return next(err);
-        } else{
-            user.password = hash;
-            next();
-        }
-    });
-});
-
-userSchema.methods.comparePassword = function(password){
-    var user = this;
-    return bcrypt.compareSync(password, user.password);
-};
-
-
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Design', designSchema);

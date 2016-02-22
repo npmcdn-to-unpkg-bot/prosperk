@@ -24,6 +24,7 @@
     "jsonwebtoken": "^5.5.4",
     "mongoose": "^4.4.3",
     "morgan": "^1.6.1",
+    "randomstring": "^1.1.4",
     "wiredep": "^3.0.0"
   }
 }

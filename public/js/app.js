@@ -10,7 +10,8 @@ var pmApp = angular.module('personly',[
     'customFilters',
     'personly.factories',
     'toastr',
-    'ngFileUpload'
+    'ngFileUpload',
+    'ui.bootstrap'
 ]);
 
 pmApp.run(['$rootScope', '$location', '$window','pmAuth','$http',
