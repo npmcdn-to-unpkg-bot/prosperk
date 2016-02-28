@@ -12,7 +12,7 @@
 
     <div class="container mtop25">
         <div class="row row-centered">
-            <div class="col-sm-6 col-xs-12 col-centered text-left mbot15" ng-show="designs.length>0">
+            <div class="col-sm-6 col-xs-12 col-centered text-left mbot15" ng-show="allDesigns.length>0">
                 <div class="bg-white border-all border-light-gray rounded-corners">
                     <div class="row border-bottom border-light-gray mleftright0">
                         <div class="col-xs-6">
@@ -30,7 +30,7 @@
                             <img ng-src="https://res.cloudinary.com/personly-me/image/upload/{{design.images[0].version}}/{{design.images[0].fileName}}" alt="{{design.name}}" class="img-thumbnail margin-auto" style="max-height: 150px; height: auto; width: auto">
                         </div>
                         <div class="col-xs-8 text-left">
-                            <h3>{{design.name}}</h3>
+                            <h3 class="mtop5">{{design.name}}</h3>
                             <p>{{design.description}}</p>
                             <p class="text-small">
                                 <span ng-repeat="tag in design.tags">
