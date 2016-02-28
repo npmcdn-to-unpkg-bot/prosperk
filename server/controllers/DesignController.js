@@ -7,11 +7,13 @@
 var cloudinary = require('cloudinary');
 var randomstring = require("randomstring");
 var Design = require('../models/design');
+var config = require('../../config');
+
 
 cloudinary.config({
-    cloud_name: 'personly-me',
-    api_key: '942718617727482',
-    api_secret: 'w0NXceMU_3ChODlb_Js_PeX_TE8'
+    cloud_name: config.cloudinary.name,
+    api_key: config.cloudinary.key,
+    api_secret: config.cloudinary.secret
 });
 
 var DesignController = function() {};
@@ -21,8 +23,6 @@ DesignController.prototype.uploadFile = function(req, res) {
     // the multiparty middleware
     var file = req.files.file;
     var data = req.body.data;
-
-    console.log(req);
 
     var imgRandomString = randomstring.generate({
         length: 24,
