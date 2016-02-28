@@ -1,8 +1,8 @@
-<div class="signup-page-bg"></div>
+
 <div class="container-fluid">
     <div class="container">
         <div class="row row-centered">
-            <div class="col-lg-5 col-md-6 col-sm-8 col-xs-12 mtopbot75 col-centered bg-white border-all border-light-gray rounded-corners signup-form">
+            <div class="col-lg-5 col-md-6 col-sm-8 col-xs-12 mtopbot50 col-centered bg-white border-all border-light-gray rounded-corners signup-form">
 
                 <h2 class="text-center text-blue ptop15">
                     Sign up with your email
@@ -15,19 +15,19 @@
                     <form ng-submit="signupUser(signup)">
                         <div class="form-group col-sm-6 col-xs-12 text-left">
                             <label>First Name</label>
-                            <input type="text" class="form-control" ng-model="signup.firstName">
+                            <input type="text" class="form-control" tabindex="1" ng-model="signup.firstName">
                         </div>
                         <div class="form-group col-sm-6 col-xs-12 text-left">
                             <label>Last Name</label>
-                            <input type="text" class="form-control" ng-model="signup.lastName">
+                            <input type="text" class="form-control" tabindex="2" ng-model="signup.lastName">
                         </div>
                         <div class="form-group col-sm-12 text-left">
                             <label>Email</label>
-                            <input type="text" class="form-control" ng-model="signup.email">
+                            <input type="text" class="form-control" tabindex="3" ng-model="signup.email">
                         </div>
                         <div class="form-group col-sm-12 text-left">
                             <label>Password</label>
-                            <input type="password" class="form-control" ng-model="signup.password">
+                            <input type="password" class="form-control" tabindex="4" ng-model="signup.password">
                         </div>
                         <div class="form-group col-sm-12">
                             <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
