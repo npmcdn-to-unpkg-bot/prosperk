@@ -8,6 +8,13 @@ pmApp.controller('loginCtrl',[ '$scope','$rootScope','$location','$http','toastr
         $location.path('/');
     }
 
+    $rootScope.bgBlue = true;
+
+    $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+        //..do something  //if you don't want event to bubble up
+        $rootScope.bgBlue = false;
+    });
+
 
     $scope.signupUser = function (data) {
         pmAuth.signupUser(data)

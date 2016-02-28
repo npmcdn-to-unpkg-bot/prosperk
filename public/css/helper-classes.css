@@ -22,7 +22,11 @@
 .col-centered {
     display:inline-block;
     float:none;
+    /* reset the text-align */
+    text-align:left;
     /* inline-block space fix */
+    margin-right:-4px;
+    vertical-align: text-top;
     vertical-align: top;
 }
 .col-centered-no-float {
@@ -32,6 +36,19 @@
     margin-right:-4px;
 
 }
+
+.vertical-middle
+{
+    vertical-align: -webkit-baseline-middle!important;
+    vertical-align: -moz-baseline-middle!important;
+    vertical-align: middle!important;
+}
+
+.text-center
+{
+    text-align: center!important;
+}
+
 
 .overflow-hidden
 {

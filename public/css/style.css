@@ -26,6 +26,23 @@
     Bootstrap elements override ends
 ********************************************/
 
+/********************************************
+       Toastr Elements Override starts
+********************************************/
+#toast-container > div, #toast-container > :hover
+{
+    -webkit-box-shadow: none!important;
+    -moz-box-shadow: none!important;
+    box-shadow: none!important;
+}
+
+
+
+/********************************************
+       Toastr Elements Override starts
+********************************************/
+
+
 
 /********************************************
             Loading SVG Starts
@@ -205,71 +222,22 @@ p{
 #error-page
 {
     display: block;
-    position: absolute;
+    position: relative;
     width: 100%;
-    min-height:calc(100% - 50px);
     background: #0080ff;
     color: #ffffff;
 }
 
-.error-page-content
-{
-    display: block;
-    position: relative;
-    margin: 0 auto;
-    width: 75%;
-    max-width: 800px;
-    color: #ffffff;
-    text-align: center;
-}
-
-
-.error-page-content h2
-{
-    font-size: 40px;
-    margin-top: -10px;
-    margin-bottom: 10px;
-}
-
-.error-page-content-img
-{
-    display: block;
-    text-align: center;
-    width: 100%;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    padding-bottom: 20px;
-    text-align: center;
-    border-bottom:1px solid #ffffff;
-}
 
 .error-page-content-img img
 {
-    height: 300px;
+    max-height: 250px;
+    margin: 0 auto;
 }
 
-.error-page-content-img h1
+.error-page-content h1
 {
-    width: 50%;
-}
-
-
-.error-page-content-img img, .error-page-content-img h1
-{
-    display:inline-block;
-    float:none;
-    /* inline-block space fix */
-    vertical-align: top;
-    float: none;
-    font-size: 250px;
-}
-
-
-.error-page-content-text
-{
-    display: inline-block;
-    position: relative;
-    float: left;
-    text-align: center;
-    width: 100%;
+    font-size: 140px;
+    margin-top: -10px;
+    margin-bottom: 10px;
 }

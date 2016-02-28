@@ -8,6 +8,24 @@ pmApp.config(function($routeProvider, $locationProvider){
         requireBase: false
     }).hashPrefix('!');
 
+
+
+    var _getBlueBg = function(templateUrlPath) {
+        return {
+            templateUrl: templateUrlPath,
+            controller: function ($scope, $routeParams, $rootScope) {
+                $rootScope.bgBlue = true;
+
+                $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+                    //..do something  //if you don't want event to bubble up
+                    $rootScope.bgBlue = false;
+                });
+
+            }
+        };
+    };
+
+
     $routeProvider
         .when('/', {
             templateUrl:'/partials/landing.html', controller: 'landingCtrl'
@@ -25,9 +43,7 @@ pmApp.config(function($routeProvider, $locationProvider){
             templateUrl:'/partials/user/profile.html', controller: 'profileCtrl'
         })
 
-        .when('/404', {
-            templateUrl:'/partials/404.html'
-        })
+        .when('/404', _getBlueBg('/partials/404.html'))
 
         .otherwise({
             redirectTo: '/404'

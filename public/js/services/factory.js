@@ -135,31 +135,3 @@ pmFac.factory('pmAuth',
         }
     }
 });
-
-
-pmFac.factory('pmAuthInterceptor',
-    function(pmAuth){
-
-        var interceptor = {};
-
-        interceptor.request = function (config) {
-            var token = pmAuth.getToken();
-
-            if(token){
-                config.headers['x-access-token'] = token;
-            }
-
-            return config;
-        };
-
-        interceptor.responseError = function (response) {
-            if(response.status == 403){
-                $location.path('/login');
-                localStorageService.clearAll();
-            }
-
-            return response;
-
-        }
-
-    });

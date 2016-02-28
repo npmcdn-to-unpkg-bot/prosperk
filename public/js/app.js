@@ -14,6 +14,10 @@ var pmApp = angular.module('personly',[
     'ui.bootstrap'
 ]);
 
+pmApp.config(['$httpProvider', function($httpProvider) {
+    $httpProvider.interceptors.push('pmHttpInterceptor');
+}]);
+
 pmApp.run(['$rootScope', '$location', '$window','pmAuth','$http',
     function($rootScope, $location, $window, pmAuth,$http) {
 
@@ -63,3 +67,35 @@ pmApp.config(function(toastrConfig) {
         target: 'body'
     });
 });
+
+pmApp.factory('pmHttpInterceptor',['localStorageService', '$rootScope', '$location','toastr',
+    function(localStorageService, $rootScope, $location,toastr){
+
+        var interceptor = {};
+
+        interceptor.request = function (config) {
+            var token = localStorageService.get('token');
+
+            if(token){
+                config.headers['x-access-token'] = token;
+            }
+
+            return config;
+        };
+
+        interceptor.responseError = function (response) {
+            console.log(response);
+            if(response.status == 403){
+                localStorageService.clearAll();
+                $location.path('/login');
+                $rootScope.currentUser = {};
+                $rootScope.loggedIn = false;
+                toastr.error('uh-oh! Something went wrong.\nPlease log back in again.')
+            }
+
+            return response;
+        }
+
+        return interceptor;
+
+    }]);
