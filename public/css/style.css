@@ -100,7 +100,7 @@ p{
     padding: 5px 10px;
 }
 
-.nav.login-btns >li > a.signup-header-btn
+.nav.login-btns >li > a.signup-header-btn,.signup-header-btn
 {
     background: rgba(0,61,255,1);
     color: #ffffff;

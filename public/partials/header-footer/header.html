@@ -12,13 +12,16 @@
             <a class="navbar-brand animated slideInDown" href="/profile" ng-show="loggedIn">
                 <img src="../images/logo/personly-logo-blue.png" class="img-responsive" alt="">
             </a>
+
+            <a href="/signup" class="btn signup-header-btn navbar-btn pull-right visible-xs mright10">Signup</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-left">
                 <li class="animated slideInDown"><a href="/about">About</a></li>
+                <li class="animated slideInDown"><a href="/login">Login</a></li>
             </ul>
 
-            <ul class="nav navbar-nav navbar-right login-btns animated slideInDown" ng-show="!loggedIn">
+            <ul class="nav navbar-nav navbar-right login-btns animated slideInDown hidden-xs" ng-show="!loggedIn">
                 <li>
                     <a href="/signup" class="btn btn-success signup-header-btn navbar-btn">Signup</a>
                 </li>
