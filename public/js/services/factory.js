@@ -14,6 +14,10 @@ pmFac.factory('pmAuth',
     return {
         authenticateUser: function (login) {
             var dfd = $q.defer();
+
+            //converting email to all lowercase.
+            login.username = login.username.toLowerCase();
+
             var json = {
                 'username'   :login.username,
                 'password'   :login.password

@@ -11,6 +11,10 @@ pmApp.controller('loginCtrl',[ '$scope','$rootScope','$location','$http','toastr
 
     $scope.signupUser = function (data) {
         console.log(data);
+
+        //converting email to all lowercase.
+        data.email = data.email.toLowerCase();
+
         var json = {
             'firstName'  :data.firstName,
             'lastName'   :data.lastName,
