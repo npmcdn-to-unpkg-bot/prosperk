@@ -23,36 +23,31 @@ module.exports = function(app, express){
     var api = express.Router();
 
     api.post('/signup', function (req, res) {
-        var user = new User({
+        var newUser = new User({
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             username: req.body.email,
             password: req.body.password
         });
 
-        user.save(function (err, user) {
+        newUser.save(function (err, userObj) {
             if(err){
                 if(err.code == 11000){
                     return res.status(500).send({errCode:11000, success:false, message:'User already exists.'});
                 }
                 return res.send(err);
             } else{
-                User.findOne({
-                    username:user.username
-                }).exec(function (err, user) {
 
-                    if(err){return res.send(err)};
-                    var token = createToken(user);
+                var token = createToken(userObj);
 
-                    req.token = token;
-                    var userDetails = {
-                        firstName:user.firstName,
-                        lastName: user.lastName,
-                        username: user.username
-                    };
+                req.token = token;
+                var userDetails = {
+                    firstName:  userObj.firstName,
+                    lastName:   userObj.lastName,
+                    username:   userObj.username
+                };
 
-                    res.send({success:true, user: userDetails, token:token});
-                });
+                res.send({success:true, user: userDetails, token:token});
             }
         })
     });
@@ -108,7 +103,7 @@ module.exports = function(app, express){
 
         console.log('Somebody is trying to access Secure Area. \nValidating Token');
         var token = req.body.token || req.params.token || req.headers['x-access-token'];
-
+        
         if(token){
             jwt.verify(token, secret, function (err, decoded) {
                 if(err){

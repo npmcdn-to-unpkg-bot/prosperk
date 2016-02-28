@@ -27,6 +27,7 @@
 }
 .col-centered-no-float {
     display:inline-block;
+    text-align: left;
     /* inline-block space fix */
     margin-right:-4px;
 

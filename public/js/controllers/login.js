@@ -10,37 +10,14 @@ pmApp.controller('loginCtrl',[ '$scope','$rootScope','$location','$http','toastr
 
 
     $scope.signupUser = function (data) {
-        console.log(data);
-
-        //converting email to all lowercase.
-        data.email = data.email.toLowerCase();
-
-        var json = {
-            'firstName'  :data.firstName,
-            'lastName'   :data.lastName,
-            'email'      :data.email,
-            'password'   :data.password
-        };
-
-        console.log(json);
-
-        $http.post('/api/v1/signup', json)
-            .success(function(response){
-                $rootScope.currentUser = response.user;
-                $rootScope.loggedIn = true;
-                localStorageService.set('user', response.user);
-                localStorageService.set('token', response.token);
-
-                pmAuth.validateSession();
-
-                $location.url('/profile');
-            })
-            .error(function(response){
-                console.log(response);
-                $scope.signupError = response.message;
-                toastr.error(response.message);
+        pmAuth.signupUser(data)
+            .then(function(success){
+                if(success){
+                    toastr.success('Account successfully created.');
+                } else{
+                    toastr.error('Bummer... there is an error registering');
+                }
             });
-
     }
 
     $scope.loginUser = function (data) {
@@ -51,7 +28,7 @@ pmApp.controller('loginCtrl',[ '$scope','$rootScope','$location','$http','toastr
                 } else{
                     toastr.error('Bummer... Incorrect username/password');
                 }
-            })
+            });
     }
 
 

@@ -12,6 +12,35 @@ pmFac.factory('pmAuth',
         var cachedToken;
 
     return {
+        signupUser: function (data) {
+            var dfd = $q.defer();
+
+            //converting email to all lowercase.
+            data.email = data.email.toLowerCase();
+
+            var json = {
+                'firstName'  :data.firstName,
+                'lastName'   :data.lastName,
+                'email'      :data.email,
+                'password'   :data.password
+            };
+
+            $http.post('/api/v1/signup', json)
+                .then(function(response){
+                    if(response.data.success){
+                        $rootScope.currentUser = response.data.user;
+                        $rootScope.loggedIn = true;
+                        localStorageService.set('user', response.data.user);
+                        localStorageService.set('token', response.data.token);
+                        cachedToken = response.data.token;
+                        $location.url('/profile');
+                        dfd.resolve(true);
+                    } else{
+                        dfd.resolve(false);
+                    }
+                });
+            return dfd.promise;
+        },
         authenticateUser: function (login) {
             var dfd = $q.defer();
 

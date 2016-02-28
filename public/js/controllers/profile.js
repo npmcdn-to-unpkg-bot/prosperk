@@ -16,6 +16,7 @@ pmApp.controller('profileCtrl',[ '$scope', '$rootScope','$location','$http','pmA
     $scope.progressPercentage = 0;
     $scope.designUploadSuccess = false;
 
+    $scope.allDesigns = [];
 
     $scope.profileInit = function () {
         $http.get('/api/v1/my-designs')
