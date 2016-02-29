@@ -1,11 +1,10 @@
 /*
-    Primary Blue Color HEX #3D5AA8
-    Primary Blue Color RGBA rgba(61,90,168,1)
-    Primary Blue Hover Color HEX #234591
-    Primary Blue Hover Color RGBA rgba(35,69,145,1)
+    Primary Blue Color HEX #003DFF
+    Primary Blue Color RGBA rgba(0,61,255,1)
+    Primary Blue Hover Color HEX #0237E2
+    Primary Blue Hover Color RGBA rgba(2,55,226,1)
     Secondary Purple Color HEX #9A48D0
     Secondary Purple Color RGBA rgba(154,72,208,1)
-    Secondary Blue Color RGBA rgba(0,61,255,1)
 */
 
 
@@ -370,7 +369,7 @@
 {
     background: #ffffff;
     border:1px solid #ffffff;
-    color: rgba(61,90,168,1);
+    color: rgba(0,61,255,1);
 }
 
 .btn-outline
@@ -384,7 +383,7 @@
 {
     background: #ffffff;
     border:1px solid #dddddd;
-    color: rgba(61,90,168,1);
+    color: rgba(0,61,255,1);
 }
 
 
@@ -424,7 +423,7 @@
 .btn-white:hover
 {
     background: #f9f9f9!important;
-    color: #3D5AA8!important;
+    color: #003DFF!important;
 }
 
 .text-white
